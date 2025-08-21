@@ -175,4 +175,31 @@ INSERT INTO instrument (serial_number, instrument_type, model_name, mrp, `condit
 ('SNROL001', 'Drum Kit', 'V-Drums', 22000.00, 'Used', 1005, 4),
 ('SNIBA001', 'Bass Guitar', 'GSR200', 18000.00, 'New', 1006, 5),
 ('SNYAM002', 'Piano', 'P-45', 35000.00, 'Refurbished', 1007, 2);
+-- 
 
+
+
+
+
+
+
+
+
+
+-- Find the names of all customers who bought an instrument manufactured by 'Fender'.
+select 
+customer.customer_id,
+customer.first_name,
+customer.last_name
+from
+customer
+inner join 
+sale
+on customer.customer_id = sale.customer_id
+inner join 
+instrument 
+on instrument.sale_id = sale.sale_id
+inner join 
+company
+on company.company_id = instrument.company_id
+where company.company_name = 'fender';
