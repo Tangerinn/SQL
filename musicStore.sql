@@ -5,12 +5,9 @@ CREATE TABLE customer
 (
     customer_id INT PRIMARY KEY,
     first_name VARCHAR(50),
-    middle_name VARCHAR(50),
     last_name VARCHAR(50),
     email_address VARCHAR(100) UNIQUE, -- declared as unique to prevent two users mistakenly registering with the same email.
     phone_number VARCHAR(20), -- used varchar and not int because we won't perform math on a phone number :"
-    street_name VARCHAR(100),
-    street_number VARCHAR(10), 
     zip_code VARCHAR(10)
 );
 
@@ -18,7 +15,6 @@ CREATE TABLE employee
 (
     employee_id INT PRIMARY KEY,
     first_name VARCHAR(50),
-    middle_name VARCHAR(50),
     last_name VARCHAR(50),
     phone_number VARCHAR(20),
     salary DECIMAL(10, 2),
