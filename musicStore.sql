@@ -175,17 +175,24 @@ INSERT INTO instrument (serial_number, instrument_type, model_name, mrp, `condit
 ('SNROL001', 'Drum Kit', 'V-Drums', 22000.00, 'Used', 1005, 4),
 ('SNIBA001', 'Bass Guitar', 'GSR200', 18000.00, 'New', 1006, 5),
 ('SNYAM002', 'Piano', 'P-45', 35000.00, 'Refurbished', 1007, 2);
--- 
 
+=================================================================
 
+-- DQL : BASIC TO ADVANCED 
 
+-- select, from, as : 
+select * from company;
+select company_id, company_name from company;
+select company_id as serial_number, company_name as company from company; -- "as" changes DISPLAY NAME of a column.
 
+-- where, order by, limit
+select * from employee;-- show all employees
+select * from employee where salary>=70000; -- show employees who have salary more than 70k
+select * from employee order by salary asc; -- list employee's data from least paid to most paid
+select * from employee order by salary desc;-- list employee's data from most paid to least paid
+select * from employee order by salary desc limit 3;-- list 3 most paid employees
 
-
-
-
-
-
+-- JOINS : 
 -- Find the names of all customers who bought an instrument manufactured by 'Fender'.
 select 
 customer.customer_id,
