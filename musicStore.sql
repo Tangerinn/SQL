@@ -210,3 +210,29 @@ inner join
 company
 on company.company_id = instrument.company_id
 where company.company_name = 'fender';
+
+
+
+-- randommmm
+-- I wanted to drop sale_id from sale(its a primary key in that table), but it is a foreign key in instrument table.
+-- I couldn't because of the foreign key constraint.
+-- So, drop the CONSTRAINT first.
+-- Then, drop the column from the table that references it
+-- Then, you can drop the table w it as the primary key.
+
+-- dropped the constraint
+ALTER TABLE instrument
+DROP FOREIGN KEY instrument_ibfk_1;
+
+-- dropped table from child
+alter table instrument drop column sale_id; 
+
+-- dropped table from parent
+alter table sale drop column sale_id;
+
+-- Now I can do what I wanted to : I wanted auto_incremented sale_id
+
+-- sale_idalter table sale add column int sale_id auto_increment primary key;
+select * from  sale;
+
+
